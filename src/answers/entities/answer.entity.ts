@@ -4,7 +4,7 @@ import { Answers } from "@prisma/client";
 
 export class Answer implements Answers {
     id: number;
-    body: string;
+    content: string;
     createdAt: Date;
     updatedAt: Date;
     userId: number;

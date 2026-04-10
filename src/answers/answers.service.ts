@@ -8,9 +8,9 @@ export class AnswersService {
   @Inject(PrismaService)
   private readonly prisma: PrismaService;
 
-  create(createAnswerDto: CreateAnswerDto, userId: number, questionId: string) {
+  create(createAnswerDto: CreateAnswerDto, userId: number, questionId: number) {
     const newAnswer = {
-      body: createAnswerDto.body,
+      content: createAnswerDto.body,
       user: {
         connect: { id: userId },
       },
@@ -34,7 +34,7 @@ export class AnswersService {
   }
 
   update(id: number, updateAnswerDto: UpdateAnswerDto) {
-    return this.prisma.answers.update({
+    return this.prisma.questions.update({
       where: { id },
       data: updateAnswerDto,
     });

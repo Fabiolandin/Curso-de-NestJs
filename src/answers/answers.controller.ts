@@ -10,7 +10,7 @@ export class AnswersController {
 
   @Post(':questionId')
   @UseGuards(AuthGuard)
-  create(@Body() createAnswerDto: CreateAnswerDto, @Request() req: any, @Param('questionId') questionId: string) {
+  create(@Body() createAnswerDto: CreateAnswerDto, @Request() req: any, @Param('questionId') questionId: string,) {
     return this.answersService.create(createAnswerDto, req.sub, Number(questionId));
   }
 
