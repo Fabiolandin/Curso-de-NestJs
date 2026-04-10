@@ -9,8 +9,9 @@ export class QuestionsService {
   private readonly prisma: PrismaService;
 
   async create(createQuestionDto: CreateQuestionDto, userId: number) {
+    console.log('Tentando criar questão para o userId:', userId);
     return await this.prisma.questions.create({
-      data: { ...createQuestionDto, userId },
+      data: { ...createQuestionDto, userId: Number(userId) },
     });
   }
 
