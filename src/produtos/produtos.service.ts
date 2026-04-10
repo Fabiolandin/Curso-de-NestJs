@@ -15,11 +15,13 @@ export class ProdutosService {
   }
 
   findAll() {
-    return `This action returns all produtos`;
+    return this.prisma.produtos.findMany();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} produto`;
+    return this.prisma.produtos.findUnique({
+      where: { id },
+    });
   }
 
   update(id: number, updateProdutoDto: UpdateProdutoDto) {
